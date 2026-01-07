@@ -13,12 +13,14 @@ body {
     color: #ffffff;
 
 }
-header{
+
+header {
     position: fixed;
     top: 0;
     width: 100%;
 }
-main{
+
+main {
     margin-top: 120px;
 }
 
@@ -63,35 +65,111 @@ button[type="submit"] {
 }
 
 form button[type="submit"] {
-   background-color: #4119f5;
-   color: #fff;
-   cursor: pointer;
-   transition: background-color 0.2s ease-in-out;
+    background-color: #4119f5;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 
 }
-form button[type="submit"]:hover{
+
+form button[type="submit"]:hover {
     background-color: #6d4dfc;
 }
-.recipe-container{
+
+.recipe-container {
     text-align: center;
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     width: 80%;
     margin: 10px auto;
-    /* padding: 20px; */
+    padding: 20px;
+    place-items: center;
 }
-.recipe{
+
+.recipe {
     background-color: #fff;
     display: flex;
     flex-direction: column;
     color: #000;
     border-radius: 6px;
-    box-shadow: 0 5px 10px rgba(78, 73, 73, 0.1),-5px -5px 10px rgba(34, 34, 34, 0.5);
+    box-shadow: 0 5px 10px rgba(78, 73, 73, 0.1), -5px -5px 10px rgba(34, 34, 34, 0.5);
     cursor: pointer;
+    max-width: 350px;
 }
 
+.recipe img {
+    height: 300px;
+}
+
+.recipe h3 {
+    font-size: 24px;
+    margin-block: 5px;
+}
+
+.recipe p {
+    font-size: 20px;
+    color: #4a4a4a;
+    margin: 5px 0;
+}
+
+.recipe span {
+    font-weight: 600;
+}
+
+.recipe button {
+    
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    margin: 18px auto;;
+    font-family: inherit;
+    font-size: inherit;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 5px;
+    overflow: hidden;
+    background: orange;
+    color: ghostwhite;
+   
+}
+
+.recipe button span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+}
+
+.recipe button:hover span {
+    color: ghostwhite;
+}
+
+.recipe button::before,
+.recipe button::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.recipe button::before {
+    content: "";
+    background: #4119f5;
+    width: 120%;
+    left: -10%;
+    transform: skew(30deg);
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+.recipe button:hover::before{
+     transform: translate3d(100%, 0, 0);
+}
 
 @media screen and (max-width:600px) {
     header nav {
